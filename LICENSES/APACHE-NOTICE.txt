@@ -1,0 +1,4 @@
+Apache-2.0 applies to text adapted from:
+- google/elephant-goldfish-model (Copyright 2026 Google LLC)
+- microsoft/TokenEconomizer (Copyright Microsoft Corporation / UC Berkeley authors)
+Adapted passages are reworded; changes are ours. See docs/skill-map.md for which rule came from where.

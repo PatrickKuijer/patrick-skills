@@ -1,0 +1,30 @@
+# Load-bearing phrases. Format: <file relative to repo root>|<phrase that must stay>
+# A failing line means an edit dropped a rule a skill depends on. Change the
+# phrase here only when the rule moved or was replaced on purpose.
+skills/multi-implement/SKILL.md|restates
+skills/multi-implement/SKILL.md|SendMessage
+skills/multi-implement/SKILL.md|did not review
+skills/multi-implement/SKILL.md|run.md
+skills/multi-implement/SKILL.md|Branch gate
+skills/multi-implement/SKILL.md|AFK verdict
+skills/implement/SKILL.md|ticket-builder.md
+skills/to-tickets/SKILL.md|never file into another repo
+skills/to-spec/SKILL.md|## Goal
+skills/spec-check/SKILL.md|fresh context
+skills/code-review/SKILL.md|rerank across axes
+skills/code-review/SKILL.md|No case, no finding
+skills/diagnosing-bugs/SKILL.md|No red-capable command, no Phase 2
+skills/handoff/SKILL.md|Safe to /clear
+skills/status/SKILL.md|Verify, don't trust
+skills/decide/SKILL.md|only about the open questions
+skills/hitl-runbook/SKILL.md|portal click-paths
+skills/team-comms/SKILL.md|Never send.
+skills/repo-setup/SKILL.md|docs/agents/workflow.md
+agents/ticket-builder.md|uncommitted
+agents/ticket-builder.md|Your wish to contest is not evidence
+agents/ticket-builder.md|Stuck tripwire
+agents/ticket-reviewer.md|omitClaudeMd: true
+agents/ticket-reviewer.md|No case, no finding
+agents/ticket-reviewer.md|Not checked
+agents/spec-checker.md|omitClaudeMd: true
+agents/spec-checker.md|Paraphrase first

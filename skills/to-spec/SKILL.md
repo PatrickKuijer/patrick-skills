@@ -1,75 +1,64 @@
 ---
 name: to-spec
-description: "Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed."
+description: "Turn the current conversation into a spec and publish it to the repo's tracker or a local spec file: no interview, synthesis of what was already discussed."
+argument-hint: "[local] [prototype]"
 disable-model-invocation: true
 ---
 
-This skill takes the current conversation context and codebase understanding and produces a spec. Do NOT interview the user; just synthesize what you already know.
-
-The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+Synthesize what this conversation already settled. Do not interview; a gap
+you cannot fill goes under **Open decisions** with an owner.
 
 ## Process
 
-1. Explore the repo to understand the current state of the codebase, if you haven't already. Use the project's domain glossary vocabulary throughout the spec, and respect any ADRs in the area you're touching.
+1. Read `docs/agents/workflow.md` for the tracker (missing → `repo-setup`).
+   Explore the code the spec touches if you have not. Use the glossary's terms
+   and respect ADRs in the area.
+2. Sketch the test **seams**: prefer existing ones, the highest one possible,
+   as few as possible. One line each on what it catches and what it misses.
+   Check the seams with the user before writing.
+3. Write the spec with the template, then publish:
+   - tracker → one issue labelled agent-ready (per `workflow.md`), or
+   - `local` argument or local tracker → `.local/<topic>/spec.md`, with
+     `.local/` in `.git/info/exclude`.
+4. End with the exact next commands, so the next session needs no pasting:
+   `/spec-check <spec ref>` then `/to-tickets <spec ref>`; and the `handoff`
+   close lines.
 
-2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, propose them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
+## Template
 
-Check with the user that these seams match their expectations.
+```markdown
+## Goal
+One sentence: the outcome that makes this spec worth doing. Builders and
+reviewers measure every ticket against it.
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
-
-<spec-template>
-
-## Problem Statement
-
-The problem that the user is facing, from the user's perspective.
+## Problem
+From the user's perspective.
 
 ## Solution
+From the user's perspective.
 
-The solution to the problem, from the user's perspective.
+## Behaviour
+Numbered stories or requirements — as many as the behaviour needs, no more:
+"As a <actor>, I want <feature>, so that <benefit>", or for machine/PLC work
+"<module> shall <behaviour> when <condition>".
 
-## User Stories
+## Decisions
+Modules built or changed and their interfaces, schema and API contracts,
+state machines, architectural choices. Name stable domain identifiers (FB,
+IO tag, endpoint, table) when a decision is about them; leave out file paths
+and line numbers, they go stale. A prototype snippet that encodes a decision
+better than prose (state table, schema, type) goes inline, trimmed, marked
+as from the prototype.
 
-A LONG, numbered list of user stories. Each user story should be in the format of:
+## Testing
+The seams from step 2, what a good test checks here (external behaviour,
+expected values from this spec), prior art in the repo.
 
-1. As an <actor>, I want a <feature>, so that <benefit>
+## Out of scope
 
-<user-story-example>
-1. As a mobile bank customer, I want to see balance on my accounts, so that I can make better informed decisions about my spending
-</user-story-example>
+## Open decisions
+<question> — owner — what it blocks.
 
-This list of user stories should be extremely extensive and cover all aspects of the feature.
-
-## Implementation Decisions
-
-A list of implementation decisions that were made. This can include:
-
-- The modules that will be built/modified
-- The interfaces of those modules that will be modified
-- Technical clarifications from the developer
-- Architectural decisions
-- Schema changes
-- API contracts
-- Specific interactions
-
-Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
-
-Exception: if a prototype produced a snippet that encodes a decision more precisely than prose can (state machine, reducer, schema, type shape), inline it within the relevant decision and note briefly that it came from a prototype. Trim to the decision-rich parts, not a working demo, just the important bits.
-
-## Testing Decisions
-
-A list of testing decisions that were made. Include:
-
-- A description of what makes a good test (only test external behavior, not implementation details)
-- Which modules will be tested
-- Prior art for the tests (i.e. similar types of tests in the codebase)
-
-## Out of Scope
-
-A description of the things that are out of scope for this spec.
-
-## Further Notes
-
-Any further notes about the feature.
-
-</spec-template>
+## Size
+product | prototype  (a prototype spec gets few, coarse tickets)
+```

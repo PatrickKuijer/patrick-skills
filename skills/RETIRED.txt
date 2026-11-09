@@ -1,0 +1,5 @@
+# User-folder skills superseded by a skill in this repo with a different name.
+# scripts/install.ps1 moves each to ~/.claude/skill-backups/<timestamp>/ (never deletes).
+# Same-name replacements (multi-implement, implement, to-spec, to-tickets,
+# handoff, code-review, diagnosing-bugs) are backed up automatically and need no line here.
+implement-spec    superseded by multi-implement (pair review, same-builder fixes, run state)
