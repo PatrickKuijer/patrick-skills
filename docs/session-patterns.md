@@ -66,7 +66,7 @@ and which skill answers each pattern.
   commands; to-tickets refuses cross-repo filing; `Size: prototype`.
 - Ambiguous tickets reach builders. → `spec-check` (fresh read-only reader) in between.
 
-### backlog-status (20) → `status`
+### backlog-status (20) → `backlog`
 
 Ask from any repo, one id or "what's next", evidence-backed closes, IT-blocked
 work grouped per person with a drafted ask, a time-budget mode ("15 minutes of

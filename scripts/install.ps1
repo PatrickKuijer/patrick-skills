@@ -78,12 +78,25 @@ if (Test-Path $retired) {
     }
 }
 
-# 2. Link every skill in this repo.
+# 2. Unlink junctions into this repo whose skill folder no longer exists (renamed or removed).
+$repoSkills = Join-Path $repo 'skills'
+Get-ChildItem $skillDir -Directory -Force | Where-Object LinkType | ForEach-Object {
+    $target = Get-LinkTarget $_.FullName
+    if ($target -and $target.StartsWith($repoSkills, [StringComparison]::OrdinalIgnoreCase) -and -not (Test-Path -LiteralPath $target)) {
+        if ($PSCmdlet.ShouldProcess($_.FullName, "unlink stale junction (-> $target)")) {
+            cmd /c rmdir "$($_.FullName)" | Out-Null
+            $manifest.Add("unlinked-stale`t$($_.FullName)`t$target")
+            Write-Host "pruned  $($_.Name) (skill no longer in repo)"
+        }
+    }
+}
+
+# 3. Link every skill in this repo.
 Get-ChildItem (Join-Path $repo 'skills') -Directory | ForEach-Object {
     Set-Junction (Join-Path $skillDir $_.Name) $_.FullName
 }
 
-# 3. Link the agents folder.
+# 4. Link the agents folder.
 Set-Junction (Join-Path $claude 'agents') (Join-Path $repo 'agents')
 
 if ($manifest.Count -gt 0 -and -not $WhatIfPreference) {

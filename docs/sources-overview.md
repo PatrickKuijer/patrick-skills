@@ -105,7 +105,7 @@ is Patrick's biggest friction, see `session-patterns.md`).
 | EGM | Caveat triage DROP / CALIBRATE / RELOCATE / KEEP; claims must match evidence. |
 | Matt | `to-questionnaire` "grill the send, not the subject". |
 
-→ final-report rules in `multi-implement`, `status`, `handoff`.
+→ final-report rules in `multi-implement`, `backlog`, `handoff`.
 
 ### 8. Skill authoring / meta
 

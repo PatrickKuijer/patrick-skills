@@ -15,7 +15,7 @@ skills/code-review/SKILL.md|rerank across axes
 skills/code-review/SKILL.md|No case, no finding
 skills/diagnosing-bugs/SKILL.md|No red-capable command, no Phase 2
 skills/handoff/SKILL.md|Safe to /clear
-skills/status/SKILL.md|Verify, don't trust
+skills/backlog/SKILL.md|Verify, don't trust
 skills/decide/SKILL.md|only about the open questions
 skills/hitl-runbook/SKILL.md|portal click-paths
 skills/team-comms/SKILL.md|Never send.

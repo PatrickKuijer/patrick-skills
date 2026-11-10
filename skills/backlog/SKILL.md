@@ -1,5 +1,5 @@
 ---
-name: status
+name: backlog
 description: "Backlog and progress check for the current repo: what is closable, what agents can do unattended, what needs the user, what is blocked on others, and the one thing to do next. Use for 'status', 'what's next', 'can we close X', 'which are agent ready', 'any afk work?', 'check the AC of X', 'what's open on X', or when the user has N minutes left."
 argument-hint: "[ticket id | epic id | hitl | afk | closable] [time budget]"
 ---

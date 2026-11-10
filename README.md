@@ -7,7 +7,7 @@ real sessions.
 ## The flow
 
 `to-spec` → `spec-check` → `to-tickets` → `multi-implement` (or `implement`)
-→ `status`, with `decide` for decision tickets, `hitl-runbook` for steps only
+→ `backlog`, with `decide` for decision tickets, `hitl-runbook` for steps only
 a human can do, `team-comms` for anything written for other people, and
 `handoff` at every `/clear`. Every skill reads the repo's
 `docs/agents/workflow.md`, written once per repo by `repo-setup`.
@@ -18,7 +18,7 @@ a human can do, `team-comms` for anything written for other people, and
 | `/implement <id>` | one ticket end to end |
 | `/to-spec`, `/to-tickets` | conversation → spec → tracer-bullet tickets (agent vs human lanes) |
 | `spec-check` | fresh read-only readiness check of a spec / tickets |
-| `status` | what's closable, agent-ready, waiting on you or others; the next thing |
+| `backlog` | what's closable, agent-ready, waiting on you or others; the next thing |
 | `decide <id>` | grill only the gaps, record ADR/glossary, close the ticket |
 | `code-review <ref>` | two-axis review (standards, spec) with a strict finding contract |
 | `diagnosing-bugs` | red-capable loop first, then hypotheses |
